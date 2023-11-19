@@ -1,20 +1,37 @@
-<nav class="static shadow bg-indigo-400" data-controller="dropdown">
-   <div class="container mx-auto px-4 sm:px-8">
-      <div class="flex justify-between h-16">
-         <div class="flex">
-            <%= link_to root_path do %>
+
+
+
+<div class="static shadow bg-indigo-400 navbar bg-base-100">
+  <div class="flex-1">
+    <%= link_to root_path do %>
                <div class="inline-block h-8 justify-self-start content-start items-start">
                   <h1 class="text-slate-800 text-2xl">
                   SkillUp
                   </h1>
                </div>
             <% end %>
-         </div>
-         <div class="flex items-center">
-            <button class="btn">
-               <%= link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete } %>
-            </button>
-         </div>
-      </div>
-   </div>
-</nav>
+  </div>
+
+
+    <% if user_signed_in? %>
+      <%= link_to 'Log Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "pr-7 text-black" %>
+
+      <%= link_to edit_user_registration_path do %>
+        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-10 h-10">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+          </div>
+        </label>
+      <% end %>
+    <% else %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "pr-7 text-black" %>
+      <%= link_to 'Sign In', new_user_session_path, class: "pr-7 text-black" %>
+    <% end %>
+
+
+
+
+  </div>
+</div>
