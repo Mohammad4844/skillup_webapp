@@ -9,4 +9,13 @@
     <%= article.url %>
   </p>
 
+  <% link_preview_data = LinkThumbnailer.generate(article.url) %>
+  <% if link_preview_data %>
+    <div>
+      <strong>Link Preview:</strong>
+      <p><%= link_preview_data.description %></p>
+      <p><%= link_preview_data.favicon %></p>
+      <p><%= link_preview_data.url %></p>
+    </div>
+  <% end %>
 </div>
