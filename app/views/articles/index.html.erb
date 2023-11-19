@@ -2,15 +2,18 @@
 
 <div class="container mx-auto px-8">
   <div>
-    <h1>
-      Hello, user!
+    <h1 class="text-slate-200 text-3xl">
+      Hello, <%= current_user.email %> !
     </h1>
-  <h2>Your learning for today:</h2>
+  <h2 class="text-slate-200 text-lg">Your learning for today:</h2>
   </div>
 
   <div id="articles">
     <% @articles.each do |article| %>
-      <%= render article %>
+        <%= render article %>
     <% end %>
+  </div>
+  <div class="join">
+    <%= will_paginate @articles %>
   </div>
 </div>
