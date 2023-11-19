@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     # if user_signed_in?
     #   @articles = Article.find_for_user.paginate(page: params[:page], per_page: 10)
     # else
-      @articles = Article.paginate(page: params[:page], per_page: 10)
+      @articles = Article.order("RANDOM()").limit(15).paginate(page: params[:page], per_page: 10)
     # end
   end
 
