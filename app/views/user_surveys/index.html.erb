@@ -1,0 +1,44 @@
+<h1>
+  Welcome to skill Up!
+</h1>
+<h2>We would like to learn more about you, so we can recommend you the best content that will meet your learning goal</h2>
+
+<%= form_with(model: @user_survey, url: user_surveys_path, method: :post) do |form| %>
+  <div>
+    <label for="financial_goals">
+      <h3>Financial Goals:</h3>
+      </label>
+    <%# <%= form.text_area :financial_goals, rows: 3 %> 
+    <%= form.select :financial_goals, ['Saving for a home', 'Investing for retirement', 'Debt repayment', 'Microfinance', 'Business investment'] %>
+  </div>
+
+  <div>
+    <label for="current_knowledge">
+      <h3>Current Knowledge Level:</h3>
+    </label>
+    <%= form.select :current_knowledge, ['Beginner', 'Intermediate', 'Advanced'] %>
+    <%# <%= form.text_area :current_knowledge, rows: 3 %> 
+  </div>
+
+  <div>
+    <label for="areas_of_interest">
+      <h3>Areas of Interest:</h3>
+    </label>
+    <%# <%= form.text_area :areas_of_interest, rows: 3 %> 
+    <%= form.select :areas_of_interest, ['Budgeting', 'Investing', 'Taxes', 'Personal finance tips'] %>
+  </div>
+
+  <div>
+    <label for="learning_format">
+      <h3>Preferred Learning Format:</h3>
+    </label>
+    <%# <%= form.text_area :learning_format, rows: 3 %> 
+    <%= form.select :learning_format, ['Short articles', 'Videos', 'Interactive quizzes', 'Podcasts'] %>
+  </div>
+
+  <div>
+    <button class="btn btn-primary">
+    <%= form.submit 'Submit Survey' %>
+    </button>
+  </div>
+<% end %>
