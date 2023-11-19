@@ -11,7 +11,13 @@
         </h2>
         <p class="text-slate-900"><%= link_preview_data.description %></p>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary"><%= link_to "Read more", article.url %></button>
+          <button class="btn btn-primary">
+          <form action="/articles/update_pref" method="post">
+            <%= hidden_field_tag :id, article.id %>
+            <%= submit_tag "Read more" %>
+          </form>
+          
+          </button>
         </div>
       </div>
     </div>
