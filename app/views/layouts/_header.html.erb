@@ -1,11 +1,15 @@
 <div class="static shadow bg-indigo-400 navbar bg-base-100 px-24">
   <div class="flex-1">
     <%= link_to root_path do %>
-               <div class="inline-block h-8 justify-self-start content-start items-start">
-                  <%# <%= image_tag 'mlsa.png', alt: 'SkillUp Logo', height: '35.75', width: '100', class: '' %> %>
+               <div class="flex items-center">
+               <div class="mr-2">
+                  <%= image_tag 'logo.png', alt: 'SkillUp Logo', height: '', width: '100', class: '' %>
+               </div>
+               <div>
                   <h1 class="text-slate-800 text-2xl font-mono">
                   SkillUp
                   </h1>
+               </div>
                </div>
             <% end %>
   </div>
