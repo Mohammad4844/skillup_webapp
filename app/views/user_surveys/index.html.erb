@@ -1,14 +1,15 @@
-<h1>
+<div class="min-h-screen flex justify-center">
+   <div class="max-w-md w-full p-6 text-slate-200 shadow-md">
+<h1 class="text-4xl py-4">
   Welcome to skill Up!
 </h1>
-<h2>We would like to learn more about you, so we can recommend you the best content that will meet your learning goal</h2>
+<h2 class="text-lg py-4">We would like to learn more about you, so we can recommend you the best content that will meet your learning goal:</h2>
 
 <%= form_with(model: @user_survey, url: user_surveys_path, method: :post) do |form| %>
   <div>
     <label for="financial_goals">
       <h3>Financial Goals:</h3>
       </label>
-    <%# <%= form.text_area :financial_goals, rows: 3 %> 
     <%= form.select :financial_goals, ['Saving for a home', 'Investing for retirement', 'Debt repayment', 'Microfinance', 'Business investment'] %>
   </div>
 
@@ -42,3 +43,5 @@
     </button>
   </div>
 <% end %>
+</div>
+</div>
