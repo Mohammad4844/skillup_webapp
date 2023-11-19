@@ -10,13 +10,29 @@
            <%= article.title %>
         </h2>
         <p class="text-slate-900"><%= link_preview_data.description %></p>
+
+        <!-- You can open the modal using ID.showModal() method -->
+
+
+        <div class="card-actions justify-end">
+        <button class="btn" onclick="my_modal_<%= article.id %>.showModal()">AI Summary</button>
+        <dialog id="my_modal_<%= article.id %>" class="modal">
+          <div class="modal-box w-11/12 max-w-5xl">
+            <h3 class="font-bold text-lg"><%= article.title %></h3>
+            <p class="py-4"><%= article.summary %></p>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button, it will close the modal -->
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+        </div>
+
         <div class="card-actions justify-end">
           <button class="btn btn-primary">
-          <form action="/articles/update_pref" method="post">
-            <%= hidden_field_tag :id, article.id %>
-            <%= submit_tag "Read more" %>
-          </form>
-          
+            <%= link_to "Read More", article.url %>
           </button>
         </div>
       </div>
