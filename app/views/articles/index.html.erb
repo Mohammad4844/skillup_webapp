@@ -1,14 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Articles</h1>
+<div class="container mx-auto px-8">
+  <div>
+    <h1 class="text-slate-200 text-3xl">
+      Hello, <%= current_user.email %> !
+    </h1>
+  <h2 class="text-slate-200 text-lg">Your learning for today:</h2>
+  </div>
 
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
+  <div id="articles">
+    <% @articles.each do |article| %>
+        <%= render article %>
+    <% end %>
+  </div>
+  <div class="join">
+    <%= will_paginate @articles %>
+  </div>
 </div>
-
-<%= link_to "New article", new_article_path %>

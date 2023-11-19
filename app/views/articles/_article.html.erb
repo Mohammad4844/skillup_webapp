@@ -1,12 +1,19 @@
-<div id="<%= dom_id article %>">
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
-
-  <p>
-    <strong>Url:</strong>
-    <%= article.url %>
-  </p>
-
+<div id="<%= dom_id article %>" class="py-8">
+  <% link_preview_data = LinkThumbnailer.generate(article.url) %>
+  <% if link_preview_data %>
+    <div class="card lg:card-side bg-base-100 shadow-xl bg-slate-50">
+      <% if link_preview_data.images.first.src.to_s %>
+      <figure class="w-2/5"><%= image_tag link_preview_data.images.first.src.to_s %></figure>
+      <% end %>
+      <div class="card-body w-3/5">
+        <h2 class="card-title text-black">
+           <%= article.title %>
+        </h2>
+        <p class="text-slate-900"><%= link_preview_data.description %></p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary"><%= link_to "Read more", article.url %></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

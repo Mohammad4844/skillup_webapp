@@ -72,3 +72,6 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+
+gem 'link_thumbnailer'
+gem 'will_paginate'
