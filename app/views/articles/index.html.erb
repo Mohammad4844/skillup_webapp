@@ -3,7 +3,11 @@
 <div class="container mx-auto px-8">
   <div>
     <h1 class="text-slate-200 text-3xl">
+    <% if current_user %>
       Hello, <%= current_user.email %> !
+    <% else %>
+      Hello!
+    <% end %>
     </h1>
   <h2 class="text-slate-200 text-lg">Your learning for today:</h2>
   </div>
